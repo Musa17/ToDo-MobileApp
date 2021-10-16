@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:ToDoMobileApp"
              x:Class="ToDoMobileApp.MainPage">
 
+    <ContentPage.BindingContext>
+        <local:TodoListViewModel />
+    </ContentPage.BindingContext>
+    
     <StackLayout>
         <Entry 
             x:Name="InputField"
@@ -11,9 +15,15 @@
             Placeholder="Add To do item"
         />
 
-        <StackLayout x:Name="TodoList">
-            
-        </StackLayout>
+        <ListView x:Name="TodoList" ItemsSource="{Binding TodoItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding TodoText}" FontSize="Large"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>
