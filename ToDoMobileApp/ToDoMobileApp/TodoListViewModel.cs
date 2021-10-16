@@ -28,5 +28,13 @@ namespace ToDoMobileApp
         {
             TodoItems.Add(new TodoItem(newTodoInputValue, false));
         }
+
+        public ICommand RemoveTodoCommand => new Command(RemoveTodoItem);
+
+        void RemoveTodoItem(object obj)
+        {
+            TodoItem todoItemBeingRemoved = obj as TodoItem;
+            TodoItems.Remove(todoItemBeingRemoved);
+        }
     }
 }

@@ -20,7 +20,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding TodoText}" FontSize="Large"/>
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label Text="{Binding TodoText}" FontSize="Large" Margin="20, 0, 0, 0"/>
+                            <ImageButton Source="delete.png" Scale="0.5" Margin="20, 0"
+                                         Command="{Binding Path=BindingContext.RemoveTodoCommand, Source={x:Reference TodoList}}"
+                                         CommandParameter="{Binding .}"/>
+                        </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
