@@ -5,10 +5,15 @@
              x:Class="ToDoMobileApp.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Entry 
+            x:Name="InputField"
+            Text=""
+            Placeholder="Add To do item"
+        />
+
+        <StackLayout x:Name="TodoList">
+            
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
