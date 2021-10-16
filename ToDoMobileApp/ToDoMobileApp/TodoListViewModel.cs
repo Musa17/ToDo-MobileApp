@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ToDoMobileApp
 {
@@ -16,6 +18,15 @@ namespace ToDoMobileApp
             TodoItems.Add(new TodoItem("Todo1", false));
             TodoItems.Add(new TodoItem("Todo2", false));
             TodoItems.Add(new TodoItem("Todo3", false));
+        }
+
+        public string newTodoInputValue { get; set; }
+
+        public ICommand AddTodoCommand => new Command(AddTodoItem);
+        
+        void AddTodoItem(object obj)
+        {
+            TodoItems.Add(new TodoItem(newTodoInputValue, false));
         }
     }
 }
